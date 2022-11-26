@@ -1,23 +1,23 @@
+import { useEffect, useState } from "react";
 import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/Sidebar/Sidebar";
-import './App.css';
-import { useEffect, useState } from "react";
 import { createUsers } from "./functions/faker";
+import './App.css';
 
 function App() {
-  const [user,setUser]=useState()
+  const [users,setUsers]=useState([])
 
   useEffect(()=>{
-    createUsers(10,setUser)
+    createUsers(100,setUsers)
   },[])
   
-  console.log(user)
+  
   
   return (
     <div className="App">
       <Navbar/>
       <div className="container">
-        <Sidebar/>
+        <Sidebar users={users}/>
         <div className="main-div">Main div</div>
       </div>
 

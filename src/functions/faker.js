@@ -12,6 +12,7 @@ const createRandomUser = () => {
         },
         age: Math.floor(Math.random()*40)+20,
         phoneNumber: faker.phone.number(),
+        occupation:faker.name.jobTitle(),
         vehicle: {
             model: faker.vehicle.model(),
             manufacturer: faker.vehicle.manufacturer(),
