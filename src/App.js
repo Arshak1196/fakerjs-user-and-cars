@@ -1,27 +1,33 @@
 import { useEffect, useState } from "react";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./Components/Navbar/Navbar";
 import Sidebar from "./Components/Sidebar/Sidebar";
+import Carpage from './Pages/CarPage'
+import UserPage from "./Pages/UserPage";
 import { createUsers } from "./functions/faker";
 import './App.css';
 
 function App() {
-  const [users,setUsers]=useState([])
+  const [users, setUsers] = useState([])
 
-  useEffect(()=>{
-    createUsers(100,setUsers)
-  },[])
-  
-  
-  
+  useEffect(() => {
+    createUsers(1000, setUsers)
+  }, [])
+
+
+
   return (
     <div className="App">
-      <Navbar/>
+      <Navbar />
       <div className="container">
-        <Sidebar users={users}/>
-        <div className="main-div">Main div</div>
+        <Sidebar users={users} />
+        <Routes>
+          <Route path='/' element={<UserPage users={users} />} />
+          <Route path='/cars' element={<Carpage users={users} />} />
+        </Routes>
       </div>
 
-      
+
     </div>
   );
 }

@@ -3,7 +3,6 @@ import 'react-virtualized/styles.css';
 import { AutoSizer, List } from 'react-virtualized';
 
 function Sidebar({ users }) {
-    console.log(users)
     return (
         <div className='sidebar'>
             {/* <p className='title'>All Users(Scroll down to see more)</p> */}
