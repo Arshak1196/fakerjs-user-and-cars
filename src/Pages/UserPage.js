@@ -31,17 +31,17 @@ function UserPage({ users }) {
       },
       title: {
         display: true,
-        text: 'Users',
+        text: ' USERS BASED ON THEIR COUNTRY OF ORIGIN',
       },
     },
   };
 
-  const labels = [...new Set(users.map((user) => user.address.country))]
+  const labels = [...new Set(users.map((user) => user.address.country))].sort()
   const data = {
     labels,
     datasets: [
       {
-        label: 'Country',
+        label: 'Users',
         data: labels.map((country) => {
           return (users.reduce((acc, curr) => {
             if (curr.address.country === country) {
