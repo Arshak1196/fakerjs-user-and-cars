@@ -3,6 +3,9 @@
     height:4rem;
     background-color: #0066ff;
     text-align: center;
+    position: sticky;   
+
+    top: 0; 
 }
 
 .navbar .button{

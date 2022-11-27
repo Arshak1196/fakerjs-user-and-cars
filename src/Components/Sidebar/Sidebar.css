@@ -3,6 +3,8 @@
     height: calc(100vh - 4rem);
     background-color: #99ccff;
     border-right: 2px solid black;
+    position:sticky;
+    top: 4rem;
 }
 
 .title{
