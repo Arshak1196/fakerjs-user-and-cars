@@ -19,7 +19,12 @@
 .list{
     border: 1px solid black;
     border-radius: 8px; 
-    padding-left: 20px;
+    padding: 12px 1rem;
     margin: 1rem 10px;
     background-color: white;
+}
+
+.list p {
+    margin:0;
+    padding:0
 }

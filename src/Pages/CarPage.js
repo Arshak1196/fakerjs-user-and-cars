@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
+import CarList from '../Components/CarList/CarList';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function CarPage(props) {
-  const [users,setUsers]=useState([])
+  const [users, setUsers] = useState([])
+  const [cars,setCars]=useState([])
   const carMakersLabel = [...new Set(users.map((user) => user?.vehicle.manufacturer))].sort()
   const carAgeLabel = [...new Set(users.map((user) => user?.vehicle.age))].sort()
 
-  useEffect(()=>{
+  useEffect(() => {
     setUsers(props.users)
-  },[props.users])
+    setCars([...new Set(props.users?.map((user) => user.vehicle.manufacturer))].sort())
+  }, [props.users])
 
   const carMakersData = {
     labels: carMakersLabel,
@@ -61,25 +64,21 @@ function CarPage(props) {
     ],
   }
 
-  const handlefilter=(e)=>{
-    if(e.target.value==='all'){
+  const handlefilter = (e) => {
+    if (e.target.value === 'all') {
       setUsers(props.users)
-    }else if(e.target.value==='50'){
-      setUsers(props.users.filter((user)=>{
-        if(user.age>=50){
-          return user
-        }
+    } else if (e.target.value === '50') {
+      setUsers(props.users.filter((user) => {
+        return user.age >= 50
       }))
-    }else{
-      const value=Number(e.target.value)
-      setUsers(props.users.filter((user)=>{
-        if(user.age>=value && user.age<(value+10)){
-          return user
-        }
+    } else {
+      const value = Number(e.target.value)
+      setUsers(props.users.filter((user) => {
+        return user.age >= value && user.age < (value + 10)
       }))
     }
   }
-  
+
   return (
     <div className='main-div'>
       <div className='ageFiter'>
@@ -102,6 +101,10 @@ function CarPage(props) {
           <h3>Average age of cars</h3>
           <Pie data={carAgeData} />
         </div>
+      </div>
+      <div className='carlist-div'>
+        <h2>List of cars and their Owners</h2>
+        <CarList cars={cars} users={props.users}/> 
       </div>
 
     </div>

@@ -1,0 +1,35 @@
+.carlist {
+    display: flex;
+    justify-content: center;
+}
+
+.cardiv {
+    border: 2px solid black;
+    text-align: left;
+    width: 40%;
+    padding-right: 1rem;
+}
+
+.cardiv h4 {
+    text-align: center;
+}
+
+.cardiv li {
+    border: 1px solid black;
+}
+
+.cardiv li:hover {
+    cursor: pointer;
+    background-color: aliceblue;
+}
+
+.pagination-btn {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid #ddd;
+    margin: 0 4px;
+    cursor: pointer;
+}
