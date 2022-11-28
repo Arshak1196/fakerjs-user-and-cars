@@ -6,29 +6,37 @@ import Carpage from './Pages/CarPage'
 import UserPage from "./Pages/UserPage";
 import { createUsers } from "./functions/faker";
 import './App.css';
+import RightSideBar from "./Components/RightSideBar/RightSideBar";
 
 function App() {
   const [users, setUsers] = useState([])
+  const [display, setDisplay] = useState(false)
+  const [userDetails,setUserDetails]=useState('')
 
   useEffect(() => {
-    createUsers(1000, setUsers)
-  }, [])
+    createUsers(100000, setUsers)
+  }, []) 
+
+ 
 
 
 
   return (
-    <div className="App">
-      <Navbar />
-      <div className="container">
-        <Sidebar users={users} />
-        <Routes>
-          <Route path='/' element={<UserPage users={users} />} />
-          <Route path='/cars' element={<Carpage users={users} />} />
-        </Routes>
+    <>
+      <div className="App">
+        <Navbar />
+        <div className="container">
+          <Sidebar users={users} open={setDisplay} setUser={setUserDetails} />
+          <Routes>
+            <Route path='/' element={<UserPage users={users} />} />
+            <Route path='/cars' element={<Carpage users={users} />} />
+          </Routes>
+        </div>
+
+
       </div>
-
-
-    </div>
+      {display && <RightSideBar close={setDisplay} user={userDetails} />}
+    </>
   );
 }
 

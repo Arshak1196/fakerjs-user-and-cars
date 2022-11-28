@@ -2,9 +2,10 @@ import './Sidebar.css'
 import 'react-virtualized/styles.css';
 import { AutoSizer, List } from 'react-virtualized';
 
-function Sidebar({ users }) {
+function Sidebar({ users,open,setUser }) {
     const handleDisplayUser=(user)=>{
-        console.log(user)
+        setUser(user)
+        open(true)
     }
     return (
         <div className='sidebar'>

@@ -1,0 +1,42 @@
+.rightSidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    margin-left: calc(100vw - 250px);
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #99ccff;
+    overflow-x: hidden;
+    padding-top: 60px;
+    padding-left: 10px;
+    transition: 0.5s;
+}
+
+.close-btn {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color:black;
+    display: block;
+    transition: 0.3s;
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.close-btn:hover{
+    cursor: pointer;
+    color: #f1f1f1;
+}
+
+
+.rightSidebar p{
+    font-weight: 500;
+}
+
+.rightSidebar p span{
+    font-weight: normal;
+}

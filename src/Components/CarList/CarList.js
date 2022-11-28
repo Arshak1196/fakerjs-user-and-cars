@@ -34,7 +34,6 @@ function CarList({ cars, users }) {
         setCarName(carName)
         setCarUsers(userList)
     }
-    console.log(carUsers)
 
 
     return (
